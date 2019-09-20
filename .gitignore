@@ -1,0 +1,6 @@
+# ignore extraneous files created by LaTeX compilation process
+*.aux
+*.fdb*
+*.fls*
+*.log
+*.synctex.gz
