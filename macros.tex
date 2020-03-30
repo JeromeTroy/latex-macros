@@ -1,0 +1,98 @@
+% macros file
+%% packages
+
+% fonts
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% ams stuff
+\usepackage{amsthm, amsmath, amssymb, amsfonts}
+
+% bold math
+\usepackage{bbold, bm}
+
+% various letters for enumerate fields
+\usepackage{enumitem}
+
+% if statments
+\usepackage{xifthen}
+
+% graphics
+\usepackage{graphicx, float}
+
+% making figures in tex
+\usepackage{tikz, pgfplots}
+    \pgfplotsset{compat=1.9}   
+
+%% math commands
+
+% sign of value
+\newcommand{\sgn}[1]{\mathrm{sgn}\left( #1 \right)}
+% function support
+\newcommand{\supp}[1]{\mathrm{supp}\left( #1 \right)}
+% vectors and vector spaces
+\renewcommand{\vec}[1]{\bm{#1}}
+\newcommand{\norm}[1]{\left|\left| #1 \right|\right|}
+
+% special functions
+\renewcommand{\exp}[1]{\text{exp}\left(#1\right)}
+\renewcommand{\sin}[2][1]{
+    \mathrm{sin}^{
+        \ifthenelse{\equal{#1}{1}}{}{\,#1}
+    }
+    \left( #2 \right)
+}
+\renewcommand{\cos}[2][1]{
+    \mathrm{cos}^{
+        \ifthenelse{\equal{#1}{1}}{}{\,#1}
+    }
+    \left( #2 \right)
+}
+\renewcommand{\cot}[1]{\mathrm{cot}\left( #1 \right)}
+\renewcommand{\cosh}[2][1]{
+    \mathrm{cosh}^{
+        \ifthenelse{\equal{#1}{1}}{}{\,#1}
+    }
+    \left( #2 \right)
+}
+\renewcommand{\sinh}[2][1]{
+    \mathrm{sinh}^{
+        \ifthenelse{\equal{#1}{1}}{}{\,#1}
+    }
+    \left( #2 \right)
+}
+
+% sets
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+% derivatives
+\newcommand{\der}[3][1]{
+	\frac{{\text{d}^{
+		\ifthenelse{\equal{#1}{1}}{}{\,#1}
+	}
+	{#2} }}
+	{\text{d} {#3}^{
+		\ifthenelse{\equal{#1}{1}}{}{#1}
+	}
+	}
+}
+
+\newcommand{\pder}[3][1]{
+	\frac{\partial^{
+		\ifthenelse{\equal{#1}{1}}{}{\,#1}
+	}
+	{#2}}
+	{\partial {#3}^{
+		\ifthenelse{\equal{#1}{1}}{}{#1}
+	}
+	}
+}
+
+% page setup
+\setlength{\parindent}{0em}
+\everymath{\displaystyle}
+\usepackage[margin=1in]{geometry}
+
