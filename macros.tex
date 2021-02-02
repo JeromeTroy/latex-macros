@@ -9,7 +9,7 @@
 \usepackage{amsthm, amsmath, amssymb, amsfonts}
 
 % bold math
-\usepackage{bbold, bm}
+\usepackage{bbold, bm, bbm}
 
 % various letters for enumerate fields
 \usepackage{enumitem}
@@ -28,39 +28,22 @@
 
 % sign of value
 \newcommand{\sgn}[1]{\mathrm{sgn}\left( #1 \right)}
+
 % function support
 \newcommand{\supp}[1]{\mathrm{supp}\left( #1 \right)}
+
 % vectors and vector spaces
 \renewcommand{\vec}[1]{\bm{#1}}
 \newcommand{\norm}[1]{\left|\left| #1 \right|\right|}
+\newcommand{\inner}[1]{\left\langle #1 \right\rangle}
 
 % special functions
 \renewcommand{\exp}[1]{\text{exp}\left(#1\right)}
-\renewcommand{\sin}[2][1]{
-    \mathrm{sin}^{
-        \ifthenelse{\equal{#1}{1}}{}{\,#1}
-    }
-    \left( #2 \right)
+\renewcommand{\log}[1]{
+		\mathrm{log}\left( #1 \right)
 }
-\renewcommand{\cos}[2][1]{
-    \mathrm{cos}^{
-        \ifthenelse{\equal{#1}{1}}{}{\,#1}
-    }
-    \left( #2 \right)
-}
-\renewcommand{\cot}[1]{\mathrm{cot}\left( #1 \right)}
-\renewcommand{\cosh}[2][1]{
-    \mathrm{cosh}^{
-        \ifthenelse{\equal{#1}{1}}{}{\,#1}
-    }
-    \left( #2 \right)
-}
-\renewcommand{\sinh}[2][1]{
-    \mathrm{sinh}^{
-        \ifthenelse{\equal{#1}{1}}{}{\,#1}
-    }
-    \left( #2 \right)
-}
+
+\input{trig}
 
 % sets
 \newcommand{\R}{\mathbb{R}}
@@ -69,30 +52,27 @@
 \newcommand{\Z}{\mathbb{Z}}
 
 % derivatives
-\newcommand{\der}[3][1]{
-	\frac{{\text{d}^{
-		\ifthenelse{\equal{#1}{1}}{}{\,#1}
-	}
-	{#2} }}
-	{\text{d} {#3}^{
-		\ifthenelse{\equal{#1}{1}}{}{#1}
-	}
-	}
+\input{derivatives}
+
+% functional stuff
+\newcommand{\embeds}{\hookrightarrow}
+
+% probability
+\newcommand{\E}[2][1]{
+		\mathbb E_{
+				\ifthenelse{\equal{#1}{1}}{}{#1}
+		} \left[ #2 \right]
+}
+\newcommand{\var}[1]{
+		\mathrm{Var}\left( #1 \right)
+}
+\newcommand{\relent}[2]{
+		D_\mathrm{KL} \left(
+		#1 \mid \mid #2 \right)
 }
 
-\newcommand{\pder}[3][1]{
-	\frac{\partial^{
-		\ifthenelse{\equal{#1}{1}}{}{\,#1}
-	}
-	{#2}}
-	{\partial {#3}^{
-		\ifthenelse{\equal{#1}{1}}{}{#1}
-	}
-	}
-}
 
 % page setup
-\setlength{\parindent}{0em}
 \everymath{\displaystyle}
 \usepackage[margin=1in]{geometry}
 
